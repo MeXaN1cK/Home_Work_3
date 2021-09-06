@@ -9,4 +9,8 @@ public class YandexMarketPage {
     public void goToComputers(){
         $(By.xpath("//a[@href='/catalog--kompiuternaia-tekhnika/54425']")).pressEnter();
     }
+
+    public void goToLaptops(){
+        $(By.xpath("//a[@href='/catalog--noutbuki/54544/list?hid=91013']")).pressEnter();
+    }
 }
