@@ -1,11 +1,14 @@
 package ru.yandex.pages;
 
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
+import io.qameta.allure.Step;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class YandexPage {
+    @Step("Переходим на страницу Яндекс.Маркет")
     public void goToMarket() {
-        $(By.xpath("//a[@href='https://market.yandex.ru/?clid=505&utm_source=main_stripe_big&wprid=1630926293.37539.85660.934374&src_pof=505&utm_source_service=morda']")).pressEnter();
+        $x("//a[@data-id='market']").shouldHave(text("Маркет")).click();
     }
 }
