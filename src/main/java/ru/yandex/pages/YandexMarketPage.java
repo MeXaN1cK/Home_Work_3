@@ -7,7 +7,6 @@ import io.qameta.allure.Step;
 
 import java.util.Objects;
 
-import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeLessThanOrEqual;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.timeout;
@@ -61,12 +60,10 @@ public class YandexMarketPage {
 
     @Step("Ожидаем результатов поиска и проверяем на количество результатов {count}")
     public void waitSearchResult(Integer count){
-        //sleep(timeout);
         $x("//div[@data-apiary-widget-id='/content/results']").shouldBe(enabled).shouldBe(visible);
         $x("//button[@type='button' and @aria-haspopup]").shouldBe(visible).click();
         $x("//button[@class and contains(text(),'Показывать по 12')]").shouldBe(visible).click();
         $x("//div[@data-apiary-widget-id='/content/results']").shouldBe(enabled).shouldBe(visible);
-        //sleep(timeout);
         $$x("//div[@data-zone-name='snippetList']/article").shouldHave(sizeLessThanOrEqual(count));
     }
 
